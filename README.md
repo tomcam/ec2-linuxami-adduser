@@ -5,15 +5,74 @@ him access to your EC2 Instance running Amazon Linux 2
 so that he can create and run programs in Go.
 
 In concept you're going to give that person a username and
-password, but EC2 doesn't like passwords. Instead you'll assign
-a username and provide a public key file (calld a PEM file)
-to use instead of  a password. 
-The new user will log in to ssh by passing it his local copy of the 
-PEM file, which must match an entry in a file called `authorized_keys`, 
-stored in a hidden directory namd `~/.ssh` you create with the
-new user account.
+password, but EC2 doesn't like passwords. Instead you'll:
 
-## Log into EC2
+* Create a username and home directory
+* Generate a private key file (calld a PEM file)
+to use instead of  a password. 
+* Generate from that
+private key file a separate public key file. 
+* Add the public key file contents to a a file called in the new user's 
+account in the EC2 instance `authorized_keys`, 
+stored in a hidden directory namd `~/.ssh` you create with the
+new user account. 
+* Send the private key to the new user.
+
+The `authorized_keys` file itself is
+tricky to create, because its permissions must be set to much
+more restrictive levels than normal and its contents must be
+carefully formatted.
+
+This process will require you to open up 2 terminals.
+One will be on your local machine, and the other will be on the EC2 instance. 
+You will log in as yourself on the EC2 instance, then morph into
+the new user, create `~/.ssh/authorized_keys`, and add the public
+key to it.
+
+## Log into EC2 and create a private key file
+
+* Log into the EC2 dashboard
+
+* Under **NETWORK & SECURITY** on the navigation panel, choose **Key Pairs**.
+
+* Choose **Create Key Pair**
+
+* Give it a name, say, `coolio`.
+
+### Important! Save the private key file
+
+You're given the chance to save the private key file. You absolutely need to save it.
+
+* Save the private key file to your local machine. 
+By convention it is saved in a directory named ~/.ssh, so
+you might save the file as `~/.ssh/coolio.pem.`
+
+### Set the private key file permissions to 600
+
+Amazon doesn't want your new user's private key file to be available to anyone else.
+
+* Set its permission to 600:
+
+```bash
+# Make this file private.
+# Allow only the creator of this file 
+# to edit it.
+chmod 600 ~/.ssh/coolio.pem
+```
+
+* Obtain its public key and copy to the system clipboard:
+
+```bash
+# -y means read a private key, obtain its public key,
+#    and display the contents to the standard output device.
+# -f is the file from which to obtain the private key.
+#  | pbcopy send standard output to the Macintosh clipboard.
+#    You can omit the  | pbcopy to see the public key.
+ssh-keygen -y -f ~/.ssh/coolio.pem | pbcopy
+```
+
+
+
 
 * Open the Terminal program on your Mac.
 
@@ -89,6 +148,11 @@ you pipe to the `pbcopy`.
 ssh-keygen -y -f ~/.ssh/ec2.pem | pbcopy
 ```
 
-Now
+Now the file has been copied to your system clipboard. It's time to
+add an entry to the `authorized_keys` file on the EC2 instance.
+
+## Create the authorized_keys entry
+
+* Return to the
 
 
