@@ -88,6 +88,27 @@ sudo su - coolio
 The prompt changes, because you are now acting 
 as the user named Coolio, on the EC2 instance.
 
+## Removing a user account/deleting a user
+
+You can delete the user just as easily as you created them.
+
+* Log into your EC2 instance
+
+
+```bash
+# Don't do this unless you want to
+# remove the user!
+# In this example, the username is coolio.
+# Default command preserves coolio's home directory.
+sudo userdel coolio
+
+# To erase Coolio's home directory, 
+# add the -r option:
+sudo userdel -r coolio
+```
+
+
+
 ## Create a directory for the public key
 
 When the new user logs in via ssh, access to the public key
@@ -299,7 +320,6 @@ steps from there, starting with the `chmod 600 ~/.ssh/coolio.pem` part.
 
 ## TODO:
 
-* Show how to remove a user
 * Correct to make user permissions less powerful?
 
 ## Reference
