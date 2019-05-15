@@ -21,8 +21,8 @@ best to make it better.
 In concept you're going to give that person a username and
 password, but EC2 doesn't like passwords. It requires
 specially generated files be passed into the `ssh` command
-line. Instead of creating a 
-password you will:
+line. These files contain a programmatically generated "private key".
+Instead of creating a password you will:
 
 * Create a username and home directory
 * Use the EC2 dashboard to generate a private key file (calld a PEM file)
@@ -296,11 +296,3 @@ steps from there, starting with the `chmod 600 ~/.ssh/coolio.pem` part.
 
 I think the argument to do this is so you can use `su`. But investigate Amazon 
 best practices for this.
-
-
-
-
-
-
-
-
