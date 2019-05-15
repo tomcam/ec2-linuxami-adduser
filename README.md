@@ -1,9 +1,22 @@
 # Adding a user to an Amazon Linux 2 EC2 Instance
 
 Scenario: You hired a programmer. You want to give 
-them access to your EC2 Instance running Amazon Linux 2 
+them ssh access to your EC2 Instance running Amazon Linux 2 
 so that they can create and run programs in Go or
-PHP or whatever.
+PHP or whatever. This tutorial shows how to add a user
+and give them ssh access.
+
+## Who's this tutorial for?
+
+In my opinion everything written about ssh is either too high level, omitting important details,
+or written by people who don't really understand it, and who therefore leave out
+the "why" of what they're telling you to do. I tried to write a
+howto for the Amazon Linux 2 sysadmin who needs to bring someone
+onboard but who isnt an ssh expert. If I don't explain every step
+clearly, please email me at tomcampbell@gmail.com and I'll do my 
+best to make it better.
+
+## It's about PEM files, not passwords
 
 In concept you're going to give that person a username and
 password, but EC2 doesn't like passwords. It requires
@@ -35,8 +48,7 @@ in their `.ssh` directory.
 This process will require you to open up 2 terminals.
 One will be on your local machine, and the other will be on the EC2 instance. 
 You will log in as yourself on the EC2 instance, then morph into
-the new user, create `~/.ssh/authorized_keys`, and add the public
-key to it.
+the new user to finish your tasks.
 
 ## Log into your EC2 instance
 
