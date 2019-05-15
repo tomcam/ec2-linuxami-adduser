@@ -12,7 +12,7 @@ line. Instead of creating a
 password you will:
 
 * Create a username and home directory
-* Use the EC2 dashboard tp generate a private key file (calld a PEM file)
+* Use the EC2 dashboard to generate a private key file (calld a PEM file)
 to use instead of  a password. 
 * Generate from that private key file a separate public key file. 
 * Add the public key file contents to a a file called in the new user's 
