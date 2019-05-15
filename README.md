@@ -1,23 +1,24 @@
 # Adding a user to an Amazon Linux 2 EC2 Instance
 
 Scenario: You hired a programmer. You want to give 
-him access to your EC2 Instance running Amazon Linux 2 
-so that he can create and run programs in Go.
+them access to your EC2 Instance running Amazon Linux 2 
+so that they can create and run programs in Go or
+PHP or whatever.
 
 In concept you're going to give that person a username and
-password, but EC2 doesn't like passwords. It uses
-specially generated files. Instead of creating a 
+password, but EC2 doesn't like passwords. It requires
+specially generated files be passed into the `ssh` command
+line. Instead of creating a 
 password you will:
 
 * Create a username and home directory
 * Use the EC2 dashboard tp generate a private key file (calld a PEM file)
 to use instead of  a password. 
-* Generate from that
-private key file a separate public key file. 
+* Generate from that private key file a separate public key file. 
 * Add the public key file contents to a a file called in the new user's 
 directory  `~/.ssh/authorized_keys`. 
 * Send the private key file to the new user, who should store it in 
-the `~/.ssh` directory.
+their own `~/.ssh` directory.
 
 The user will then log in using the copy of the .PEM you 
 sent instead of a password.
@@ -25,7 +26,8 @@ sent instead of a password.
 The `authorized_keys` file itself is
 tricky to create, because its permissions must be set to much
 more restrictive levels than normal and its contents must be
-carefully formatted.
+carefully formatted. Same with the user's PEM file
+in their `.ssh` directory.
 
 This process will require you to open up 2 terminals.
 One will be on your local machine, and the other will be on the EC2 instance. 
