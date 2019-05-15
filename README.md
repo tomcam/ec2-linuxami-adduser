@@ -13,7 +13,10 @@ password you will:
 
 * Create a username and home directory
 * Use the EC2 dashboard to generate a private key file (calld a PEM file)
-to use instead of  a password. 
+to use instead of  a password. You will create a special 
+private key exclusively for the new user. Doing so will 
+allow you to revoke the user's privileges simply by removing
+their private key.
 * Generate from that private key file a separate public key file. 
 * Add the public key file contents to a a file called in the new user's 
 directory  `~/.ssh/authorized_keys`. 
@@ -112,7 +115,7 @@ You're given the chance to save the private key file. You absolutely need to sav
 
 * Save the private key file to your local machine. 
 
-By convention it is saved in a directory named ~/.ssh, so
+By convention it is saved in a directory named `~/.ssh`, so
 you might save the file as `~/.ssh/coolio.pem.`
 
 ### Set the private key file permissions to 600
@@ -152,7 +155,8 @@ the new user's `authorized_keys` file on the EC2 instance.
 
 * Return to the EC2 instance, where you are logged in as the 
 new user, and append the contents of the clipboard to 
-the `.ssh/authorized_keys` file, something like this.
+the `.ssh/authorized_keys` file, something like 
+what you see below.
 
 ### Warning
 
@@ -175,8 +179,8 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCH2mWaPfUlSJwljop+5cicVxP1QEz2XiilWLrn2DTe
 
 ### Optional: add an identifier after the public key
 
-Suppose you want a reminder that this is Coolio's public key. You can add a space and an identifier to the
-end of your public key, like this:
+Suppose you want a reminder that this is Coolio's public key. You can append a space and an identifier after the
+text of your public key, like this:
 
 ```
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCH2mWaPfUlSJwljop+5cicVxP1QEz2XiilWLrn2DTexkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4ZJzdL/g0NQEV4R3Tj4d5vQQGn9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPXCSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/ddKaTZ/T76C+ncPrjjmK9VmeYYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwEocRe96CTjS+7aG4qk9wsc/Ofaaba2I67P0SRYbnlgFRpTRe6T2/1kBPwvgAL7WNU4XiDsSlhrf6X91juowthwCcrvQ7NFK1 coolio
