@@ -74,12 +74,11 @@ Suppose the new user is named coolio.
 
 ```bash
 # Create the new user named coolio.
-sudo adduser --home /home/coolio --shell /bin/bash --ingroup admin coolio
-
-sudo adduser --home /home/aaron --shell /bin/bash --ingroup admin aaron
+sudo adduser coolio
 
 # Give the user a password.
 # I suggest you note it in another file and paste it in.
+# You are asked for the password twice.
 sudo passwd coolio
 
 # Give coolio sudo privileges.
@@ -298,10 +297,10 @@ If you see it, it means you didn't [set permissions](#set-permissions).
 * Just return to the [set permissions](#set-permissions) and repeat your
 steps from there, starting with the `chmod 600 ~/.ssh/coolio.pem` part.
 
-## Investigate: Create a temp password for the new user?
+## TODO:
 
-I think the argument to do this is so you can use `su`. But investigate Amazon 
-best practices for this.
+* Show how to remove a user
+* Correct to make user permissions less powerful?
 
 ## Reference
 
