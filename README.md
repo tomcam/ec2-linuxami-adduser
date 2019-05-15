@@ -333,3 +333,4 @@ steps from there, starting with the `chmod 600 ~/.ssh/coolio.pem` part.
 
 AWS: [Managing User Accounts on Your Linux Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html#add-user-best-practice)
 Hackernoon: [Add New Users to EC2 and Give SSH Key Access](https://hackernoon.com/add-new-users-to-ec2-and-give-ssh-key-access-d2abd084f30c)
+Garron.me: [Take Control of your Linux sudoers file](https://www.garron.me/en/linux/visudo-command-sudoers-file-sudo-default-editor.html)
