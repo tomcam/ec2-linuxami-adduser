@@ -82,6 +82,12 @@ sudo adduser coolio
 sudo passwd coolio
 
 # Give coolio sudo privileges.
+# Run this program:
+sudo visudo
+# And add the following new line.
+coolio ALL=(ALL)NOPASSWD:ALL
+
+# Now become the new user, coolio
 sudo su - coolio
 ```
 
@@ -320,6 +326,7 @@ steps from there, starting with the `chmod 600 ~/.ssh/coolio.pem` part.
 
 ## TODO:
 
+* Explain visudo actions
 * Correct to make user permissions less powerful?
 
 ## Reference
