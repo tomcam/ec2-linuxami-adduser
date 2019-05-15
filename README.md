@@ -282,6 +282,7 @@ steps from there, starting with the `chmod 600 ~/.ssh/coolio.pem` part.
 
 ## Investigate: Create a temp password for the new user?
 
+I think the argument to do this is so you can use `su`.
 
 
 
