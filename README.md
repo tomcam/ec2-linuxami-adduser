@@ -206,9 +206,24 @@ ssh-rsa MMMADFasdfadfBAAQDFASDFLAKDFJASDKFDASDFP1QEz2XiilWLrn2DTexkfQDE+Q1YmgKAd
 
 ## Get a copy of the .pem file to the new user
 
+The new user gets a copy of the private key .PEM file, then adds
+it to the right directory and sets file permissions to 
+be more secure. Here's how:
+
 * Email or deliver in some more secure way the .PEM file (`coolio.pem`, in this case) to the
 user you've created. Explain that it should be stored in `~/.ssh` on their machine, so for
 example it would be the file `~/.ssh/coolio.pem`.
+
+### Set permissions
+
+* Tell them to set the permissions for the new file to 600:
+
+```bash
+# Make this file private.
+# Allow only the creator of this file 
+# to edit it.
+chmod 600 ~/.ssh/coolio.pem
+```
 
 * Explain that they will ssh in something like this:
 
@@ -221,6 +236,43 @@ example it would be the file `~/.ssh/coolio.pem`.
 # public DNS for your instance.
 ssh -i "~/.ssh/coolio.pem" coolio@ec2-50-51-232-66.us-east-1.compute.amazonaws.com
 ```
+
+The first time they log in they'll get a warning because they are logging into
+an address they haven't encountered before:
+
+```
+The authenticity of host 'coolio@ec2-50-51-232-66.us-east-1.compute.amazonaws.com (178.99.20.213)' can't be established.
+ECDSA key fingerprint is SHA256:v5wGzOxtO/nI9rsXAfdkadfjtqntkQBTbrY9mjHQ.
+Are you sure you want to continue connecting (yes/no)?
+```
+
+* The user should enter `yes` to avoid this warning in the future.
+
+They're given a final notice that this could be suspect:
+
+````
+Warning: Permanently added ec2-50-51-232-66.us-east-1.compute.amazonaws.com
+````
+
+## What if WARNING: UNPROTECTED PRIVATE KEY FILE appears instead?
+
+It is possible that this message will appear instead:
+
+```
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0644 for '/Users/coolio/.ssh/coolio.pem' are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+Load key "/Users/coolio/.ssh/coolio.pem": bad permissions
+coolio@c2-50-51-232-66.us-east-1.compute.amazonaws.com: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+```
+
+If you see it, it means you didn't [set permissions](#set-permissions). 
+
+* Just return to the [set permissions](#set-permissions) and repeat your
+steps from there.
 
 ## Investigate: should I create a temp password for the new user?
 
