@@ -278,9 +278,9 @@ coolio@c2-50-51-232-66.us-east-1.compute.amazonaws.com: Permission denied (publi
 If you see it, it means you didn't [set permissions](#set-permissions). 
 
 * Just return to the [set permissions](#set-permissions) and repeat your
-steps from there.
+steps from there, starting with the `chmod 600 ~/.ssh/coolio.pem` part.
 
-## Investigate: should I create a temp password for the new user?
+## Investigate: Create a temp password for the new user?
 
 
 
