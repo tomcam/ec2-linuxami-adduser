@@ -150,9 +150,79 @@ the new user's `authorized_keys` file on the EC2 instance.
 
 * Return to the EC2 instance, where you are logged in as the 
 new user, and append the contents of the clipboard to 
-the `.ssh/authorized_keys` file, something like this:
+the `.ssh/authorized_keys` file, something like this.
+
+### Warning
+
+If you're not sure what's happening, read this section carefully a couple of times.
+
+Right now the contents of your clipboard contain the public key in the form of
+two strings separated by a newline. 
+They look something like this. 
+(You can just paste it to the command line to see.)
+
+```
+ssh-rsa AAAAB3NzaC1yc2EAAAAAZRR2mWaPfUlSJwljop+5cicVxP1QEz2XiilWLrn2DTexkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4ZJzdL/g0NQEV4R3Tj4d5vQQGn9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPXCSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/ddKaTZ/T76C+ncPrjjmK9VmeYYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwEocRe96CTjS+7aG4qk9wsc/Ofaaba2I67P0SRYbnlgFRpTRe6T2/1kBPwvgAL7WNU4XiDsSlhrf6X91juowthwCcrJR21
+```
+
+* Fire up a text editor and paste these contents to the file `~/.ssh/authorized_keys`. 
+
+```
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCH2mWaPfUlSJwljop+5cicVxP1QEz2XiilWLrn2DTexkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4ZJzdL/g0NQEV4R3Tj4d5vQQGn9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPXCSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/ddKaTZ/T76C+ncPrjjmK9VmeYYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwEocRe96CTjS+7aG4qk9wsc/Ofaaba2I67P0SRYbnlgFRpTRe6T2/1kBPwvgAL7WNU4XiDsSlhrf6X91juowthwCcrvQ7NFK1
+```
+
+### Optional: add an identifier after the public key
+
+Suppose you want a reminder that this is Coolio's public key. You can add a space and an identifier to the
+end of your public key, like this:
+
+```
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCH2mWaPfUlSJwljop+5cicVxP1QEz2XiilWLrn2DTexkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4ZJzdL/g0NQEV4R3Tj4d5vQQGn9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPXCSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/ddKaTZ/T76C+ncPrjjmK9VmeYYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwEocRe96CTjS+7aG4qk9wsc/Ofaaba2I67P0SRYbnlgFRpTRe6T2/1kBPwvgAL7WNU4XiDsSlhrf6X91juowthwCcrvQ7NFK1 coolio
+```
+
+### Important note if you're coming back to do this again to an existing authorized_keys
+
+This is written as if you're in the middle of a tutorial where you know you've just created a
+user, which means there's no existing `.ssh/authorized_keys` file.
+If you're repeating this process at a later date and need to leave the previous public key
+in this file, be sure that you add the next public key  directly below, with no empty
+lines:
+
+```
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCH2mWaPfUlSJwljop+5cicVxP1QEz2XiilWLrn2DTexkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4ZJzdL/g0NQEV4R3Tj4d5vQQGn9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPXCSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/ddKaTZ/T76C+ncPrjjmK9VmeYYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwEocRe96CTjS+7aG4qk9wsc/Ofaaba2I67P0SRYbnlgFRpTRe6T2/1kBPwvgAL7WNU4XiDsSlhrf6X91juowthwCcrvQ7NFK1 coolio
+ssh-rsa MMMADFasdfadfBAAQDFASDFLAKDFJASDKFDASDFP1QEz2XiilWLrn2DTexkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4ZJzdL/g0NQEV4R3Tj4d5vQQGn9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPXCSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/ddKaTZ/T76C+ncPrjjmK9VmeYYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwEocRe96CTjS+7aG4qk9wsc/Ofaaba2I67P0SRYbnlgFRpTRe6T2/1kBPwvgAL7WNU4XiDsSlhrf6X91juowthwCcrvQ7NFK1 tom
+```
+
+You don't want it to look like this:
+
+### Don't do this! Blank lines between public keys may cause trouble
+
+```
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCH2mWaPfUlSJwljop+5cicVxP1QEz2XiilWLrn2DTexkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4ZJzdL/g0NQEV4R3Tj4d5vQQGn9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPXCSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/ddKaTZ/T76C+ncPrjjmK9VmeYYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwEocRe96CTjS+7aG4qk9wsc/Ofaaba2I67P0SRYbnlgFRpTRe6T2/1kBPwvgAL7WNU4XiDsSlhrf6X91juowthwCcrvQ7NFK1 coolio
 
 
+ssh-rsa MMMADFasdfadfBAAQDFASDFLAKDFJASDKFDASDFP1QEz2XiilWLrn2DTexkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4ZJzdL/g0NQEV4R3Tj4d5vQQGn9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPXCSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/ddKaTZ/T76C+ncPrjjmK9VmeYYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwEocRe96CTjS+7aG4qk9wsc/Ofaaba2I67P0SRYbnlgFRpTRe6T2/1kBPwvgAL7WNU4XiDsSlhrf6X91juowthwCcrvQ7NFK1 tom
+```
+
+## Get a copy of the .pem file to the new user
+
+* Email or deliver in some more secure way the .PEM file (`coolio.pem`, in this case) to the
+user you've created. Explain that it should be stored in `~/.ssh` on their machine, so for
+example it would be the file `~/.ssh/coolio.pem`.
+
+* Explain that they will ssh in something like this:
+
+```bash
+# Remember:
+# Replace ~/.ssh/coolio.pem with the name of the 
+# new user's PEM file.
+# Replace coolio with the new username, and 
+# Replace ec2-50-51-232-66.us-east-1.compute.amazonaws.com with the
+# public DNS for your instance.
+ssh -i "~/.ssh/coolio.pem" coolio@ec2-50-51-232-66.us-east-1.compute.amazonaws.com
+```
+
+## Investigate: should I create a temp password for the new user?
 
 
 
