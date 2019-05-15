@@ -74,7 +74,13 @@ Suppose the new user is named coolio.
 
 ```bash
 # Create the new user named coolio.
-sudo adduser coolio
+sudo adduser --home /home/coolio --shell /bin/bash --ingroup admin coolio
+
+sudo adduser --home /home/aaron --shell /bin/bash --ingroup admin aaron
+
+# Give the user a password.
+# I suggest you note it in another file and paste it in.
+sudo passwd coolio
 
 # Give coolio sudo privileges.
 sudo su - coolio
@@ -296,3 +302,7 @@ steps from there, starting with the `chmod 600 ~/.ssh/coolio.pem` part.
 
 I think the argument to do this is so you can use `su`. But investigate Amazon 
 best practices for this.
+
+## Reference
+
+[Hackernoon: Add New Users to EC2 and Give SSH Key Access](https://hackernoon.com/add-new-users-to-ec2-and-give-ssh-key-access-d2abd084f30c)
