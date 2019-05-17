@@ -327,7 +327,7 @@ steps from there, starting with the `chmod 600 ~/.ssh/coolio.pem` part.
 ## TODO:
 
 * Explain visudo actions
-* Create a group, then Add user to that group with slightly reduced permissions so they can't see other home dirs, etc.
+* Create a group, then Add user to that group with slightly reduced permissions so they can't see other home dirs, etc. (https://superuser.com/questions/739643/amazon-linux-add-user-to-group)https://superuser.com/questions/739643/amazon-linux-add-user-to-group
 
 ## Reference
 
