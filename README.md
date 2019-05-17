@@ -218,7 +218,14 @@ ssh-rsa AAAAB3NzaC1yc2EAAAAAZRR2mWaPfUlSJwljop+5cicVxP1QEz2XiilWLrn2DTexkfQDE+Q1
 * Fire up a text editor and paste these contents to the file `~/.ssh/authorized_keys`. 
 
 ```
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCH2mWaPfUlSJwljop+5cicVxP1QEz2XiilWLrn2DTexkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4ZJzdL/g0NQEV4R3Tj4d5vQQGn9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPXCSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/ddKaTZ/T76C+ncPrjjmK9VmeYYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwEocRe96CTjS+7aG4qk9wsc/Ofaaba2I67P0SRYbnlgFRpTRe6T2/1kBPwvgAL7WNU4XiDsSlhrf6X91juowthwCcrvQ7NFK1
+ssh-rsa
+AAAAB3NzaC1yc2EAAAADAQABAAABAQCH2mWaPfUlSJwljop+5
+cicVxP1QEz2XiilWLrn2DTexkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4Z
+JzdL/g0NQEV4R3Tj4d5vQQGn9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPX
+CSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/d
+dKaTZ/T76C+ncPrjjmK9VmeYYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwE
+ocRe96CTjS+7aG4qk9wsc/Ofaaba2I67P0SRYbnlgFRpTRe6T2/1kBPwv
+gAL7WNU4XiDsSlhrf6X91juowthwCcrvQ7NFK1
 ```
 
 ### Optional: add an identifier after the public key
@@ -227,7 +234,14 @@ Suppose you want a reminder that this is Coolio's public key. You can append a s
 text of your public key, like this:
 
 ```
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCH2mWaPfUlSJwljop+5cicVxP1QEz2XiilWLrn2DTexkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4ZJzdL/g0NQEV4R3Tj4d5vQQGn9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPXCSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/ddKaTZ/T76C+ncPrjjmK9VmeYYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwEocRe96CTjS+7aG4qk9wsc/Ofaaba2I67P0SRYbnlgFRpTRe6T2/1kBPwvgAL7WNU4XiDsSlhrf6X91juowthwCcrvQ7NFK1 coolio
+ssh-rsa
+AAAAB3NzaC1yc2EAAAADAQABAAABAQCH2mWaPfUlSJwljop+5
+cicVxP1QEz2XiilWLrn2DTexkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4Z
+JzdL/g0NQEV4R3Tj4d5vQQGn9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPX
+CSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/d
+dKaTZ/T76C+ncPrjjmK9VmeYYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwE
+ocRe96CTjS+7aG4qk9wsc/Ofaaba2I67P0SRYbnlgFRpTRe6T2/1kBPwv
+gAL7WNU4XiDsSlhrf6X91juowthwCcrvQ7NFK1 coolio
 ```
 
 ### Important note if you're coming back to do this again to an existing authorized_keys
@@ -239,8 +253,21 @@ in this file, be sure that you add the next public key  directly below, with no 
 lines:
 
 ```
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCH2mWaPfUlSJwljop+5cicVxP1QEz2XiilWLrn2DTexkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4ZJzdL/g0NQEV4R3Tj4d5vQQGn9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPXCSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/ddKaTZ/T76C+ncPrjjmK9VmeYYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwEocRe96CTjS+7aG4qk9wsc/Ofaaba2I67P0SRYbnlgFRpTRe6T2/1kBPwvgAL7WNU4XiDsSlhrf6X91juowthwCcrvQ7NFK1 coolio
-ssh-rsa MMMADFasdfadfBAAQDFASDFLAKDFJASDKFDASDFP1QEz2XiilWLrn2DTexkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4ZJzdL/g0NQEV4R3Tj4d5vQQGn9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPXCSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/ddKaTZ/T76C+ncPrjjmK9VmeYYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwEocRe96CTjS+7aG4qk9wsc/Ofaaba2I67P0SRYbnlgFRpTRe6T2/1kBPwvgAL7WNU4XiDsSlhrf6X91juowthwCcrvQ7NFK1 tom
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCH2mWaPfUlSJwljop+5
+cicVxP1QEz2XiilWLrn2DTexkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4Z
+JzdL/g0NQEV4R3Tj4d5vQQGn9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPX
+CSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/d
+dKaTZ/T76C+ncPrjjmK9VmeYYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwE
+ocRe96CTjS+7aG4qk9wsc/Ofaaba2I67P0SRYbnlgFRpTRe6T2/1kBPwv
+gAL7WNU4XiDsSlhrf6X91juowthwCcrvQ7NFK1 coolio
+ssh-rsa 
+MMMADFasdfadfBAAQDFASDFLAKDFJASDKFDASDFP1QEz2XiilWLrn2DTe
+xkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4ZJzdL/g0NQEV4R3Tj4d5vQQG
+n9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPXCSDkbeySzS+/THSB0W+6PLJ
+osHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/ddKaTZ/T76C+ncPrjjmK9Vme
+YYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwEocRe96CTjS+7aG4qk9wsc/O
+faaba2I67P0SRYbnlgFRpTRe6T2/1kBPwvgAL7WNU4XiDsSlhrf6X91ju
+CSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpD tom
 ```
 
 You don't want it to look like this:
@@ -248,10 +275,23 @@ You don't want it to look like this:
 ### Don't do this! Blank lines between public keys may cause trouble
 
 ```
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCH2mWaPfUlSJwljop+5cicVxP1QEz2XiilWLrn2DTexkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4ZJzdL/g0NQEV4R3Tj4d5vQQGn9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPXCSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/ddKaTZ/T76C+ncPrjjmK9VmeYYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwEocRe96CTjS+7aG4qk9wsc/Ofaaba2I67P0SRYbnlgFRpTRe6T2/1kBPwvgAL7WNU4XiDsSlhrf6X91juowthwCcrvQ7NFK1 coolio
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCH2mWaPfUlSJwljop+5
+cicVxP1QEz2XiilWLrn2DTexkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4Z
+JzdL/g0NQEV4R3Tj4d5vQQGn9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPX
+CSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/d
+dKaTZ/T76C+ncPrjjmK9VmeYYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwE
+ocRe96CTjS+7aG4qk9wsc/Ofaaba2I67P0SRYbnlgFRpTRe6T2/1kBPwv
+gAL7WNU4XiDsSlhrf6X91juowthwCcrvQ7NFK1 derp
 
 
-ssh-rsa MMMADFasdfadfBAAQDFASDFLAKDFJASDKFDASDFP1QEz2XiilWLrn2DTexkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4ZJzdL/g0NQEV4R3Tj4d5vQQGn9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPXCSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/ddKaTZ/T76C+ncPrjjmK9VmeYYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwEocRe96CTjS+7aG4qk9wsc/Ofaaba2I67P0SRYbnlgFRpTRe6T2/1kBPwvgAL7WNU4XiDsSlhrf6X91juowthwCcrvQ7NFK1 tom
+ssh-rsa 
+MMMADFasdfadfBAAQDFASDFLAKDFJASDKFDASDFP1QEz2XiilWLrn2DTe
+xkfQDE+Q1YmgKAd9ImGEyV+YCRC0eULJ4ZJzdL/g0NQEV4R3Tj4d5vQQG
+n9je4Yy91xEZDB0xd7DxYjr5p58iZZVjPXCSDkbeySzS+/THSB0W+6PLJ
+osHdzVeXfbKcHpDrLY8fjncVIUpcCjSZ/ddKaTZ/T76C+ncPrjjmK9Vme
+YYP/JHvp5o2HQHVeBi3RvObcON/zrlQUwEocRe96CTjS+7aG4qk9wsc/O
+faaba2I67P0SRYbnlgFRpTRe6T2/1kBPwvgAL7WNU4XiDsSlhrf6X91ju
+CSDkbeySzS+/THSB0W+6PLJosHdzVeXfbKcHpD whoopsie
 ```
 
 ## Get a copy of the .pem file to the new user
