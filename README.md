@@ -327,7 +327,7 @@ steps from there, starting with the `chmod 600 ~/.ssh/coolio.pem` part.
 ## TODO:
 
 * Explain visudo actions
-* Create a group, then Add user to that group with slightly reduced permissions so they can't see other home dirs, etc. https://serverfault.com/questions/283558/creating-user-accounts-in-amazon-ec2 https://superuser.com/questions/739643/amazon-linux-add-user-to-group
+* Create a group, then Add user to that group with slightly reduced permissions so they can't see other home dirs, etc. https://serverfault.com/questions/283558/creating-user-accounts-in-amazon-ec2 https://superuser.com/questions/739643/amazon-linux-add-user-to-group  https://www.sweetprocess.com/procedures/eG30mkvYDrfAmevj78A0i6E1GZE/add-an-administrator-to-your-amazon-aws-account/
 
 ## Reference
 
